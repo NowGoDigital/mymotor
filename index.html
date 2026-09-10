@@ -357,6 +357,13 @@ section{padding:110px 6%}
   padding:14px 24px;font-size:13px;font-weight:700;color:var(--dark);display:flex;gap:10px;
   align-items:center;transition:.35s}
 .map-chip:hover{border-color:var(--red);transform:translateY(-3px)}
+/* ===== CHIPS LOKASI — 4 SEJAJAR SATU BARIS DI LAPTOP ===== */
+@media(min-width:961px){
+  .map-info{flex-wrap:nowrap;gap:clamp(8px,1vw,14px)}
+  .map-chip{padding:clamp(9px,1vw,14px) clamp(12px,1.5vw,24px);
+    font-size:clamp(10px,1.05vw,13px);white-space:nowrap}
+  .map-chip i{font-size:clamp(10px,1vw,12px)}
+}
 .map-chip i{color:var(--red)}
 /* ===== DESKRIPSI LOKASI — SATU BARIS DI LAPTOP ===== */
 .map-section .section-head{max-width:1200px}
