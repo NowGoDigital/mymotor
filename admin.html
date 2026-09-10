@@ -48,6 +48,102 @@ label.chk input{width:auto;margin:0}
 .empty{color:#666;font-size:12px;font-style:italic}
 .hint{background:#101010;border:1px solid #262626;border-radius:12px;padding:12px 16px;font-size:12px;color:#8b8b8b;margin-bottom:22px;line-height:1.7}
 .hint b{color:#ff4d55}
+
+/* ================= CARD PREVIEW (mirror index.html) ================= */
+.pv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px}
+.pv-card{background:#fff;border-radius:18px;overflow:hidden;color:#111;position:relative;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.3s}
+.pv-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(230,0,18,.25)}
+.pv-img{height:140px;position:relative;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:8px;color:#fff;font-weight:800;font-size:11px;letter-spacing:1.5px;
+  text-align:center;padding:0 12px;overflow:hidden}
+.pv-img i{font-size:40px;filter:drop-shadow(0 5px 12px rgba(0,0,0,.45))}
+.pv-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph-red{background:radial-gradient(circle at 30% 25%,#ff5a5a,#8f0008 75%)}
+.ph-black{background:radial-gradient(circle at 30% 25%,#3d3d3d,#101010 72%)}
+.ph-silver{background:radial-gradient(circle at 30% 25%,#ffffff,#9aa1a7 80%);color:#333}
+.ph-blue{background:radial-gradient(circle at 30% 25%,#6db3e8,#0c2f4d 78%)}
+.pv-ribbon{position:absolute;top:10px;left:10px;background:rgba(10,10,10,.85);
+  border:1px solid rgba(230,0,18,.6);color:#ffd7d7;padding:5px 12px;border-radius:50px;
+  font-size:8.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;max-width:85%;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-body{padding:14px 16px 16px}
+.pv-cat{font-size:8.5px;color:#9ca3af;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.pv-name{font-size:16px;font-weight:900;margin:5px 0 3px;color:#111}
+.pv-price{color:#E60012;font-weight:800;font-size:12.5px;margin-bottom:10px}
+.pv-price small{color:#9ca3af;font-weight:500;font-size:10px}
+.pv-specs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.pv-specs span{background:#f6f6f4;border:1px solid #e8e8e8;border-radius:8px;padding:5px 9px;
+  font-size:9px;color:#4b5563;font-weight:700;display:inline-flex;align-items:center;gap:5px}
+.pv-specs i{color:#E60012;font-size:9px}
+.pv-btns{display:flex;gap:8px}
+.pv-btns b{flex:1;text-align:center;padding:9px 4px;border-radius:50px;font-size:9px;
+  letter-spacing:1px;text-transform:uppercase;font-weight:800}
+.pv-btns .r{background:linear-gradient(135deg,#ff4d55,#E60012,#9d000b);color:#fff}
+.pv-btns .c{background:linear-gradient(135deg,#2c2c2c,#111);color:#fff;border:1px solid rgba(230,0,18,.65)}
+.pv-tools{position:absolute;top:8px;right:8px;display:flex;gap:5px;z-index:5}
+.pv-tools button{width:30px;height:30px;border-radius:9px;border:1px solid #3a3a3a;
+  background:rgba(10,10,10,.88);color:#ddd;cursor:pointer;font-size:12px;backdrop-filter:blur(6px);transition:.2s}
+.pv-tools button:hover{border-color:#E60012;color:#fff}
+.pv-tools .del:hover{background:#E60012;border-color:#E60012}
+.pv-tools .ed{background:linear-gradient(135deg,#ff4d55,#E60012);border:none;color:#fff;font-weight:800}
+.pv-add{border:2px dashed #3a3a3a;border-radius:18px;min-height:250px;display:flex;
+  flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;
+  color:#666;font-size:13px;font-weight:700;transition:.3s;background:rgba(230,0,18,.03)}
+.pv-add:hover{border-color:#E60012;color:#ff8089;background:rgba(230,0,18,.07)}
+.pv-add .big{font-size:42px;font-weight:300;line-height:1}
+
+/* ================= MODAL EDIT ================= */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:200;
+  display:flex;align-items:flex-start;justify-content:center;padding:30px 14px;overflow-y:auto}
+.modal-bg[hidden]{display:none}
+.modal{background:#151515;border:1px solid rgba(230,0,18,.4);border-radius:20px;
+  width:min(96vw,860px);box-shadow:0 40px 100px rgba(0,0,0,.7);overflow:hidden}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 22px;background:#1c1c1c;border-bottom:1px solid #2a2a2a;position:sticky;top:0;z-index:3}
+.modal-head h2{font-size:14px;letter-spacing:1.5px;color:#ff8089;text-transform:uppercase}
+.modal-head button{background:#242424;border:1px solid #3a3a3a;color:#ddd;width:34px;height:34px;
+  border-radius:10px;cursor:pointer;font-size:14px}
+.modal-head button:hover{background:#E60012;border-color:#E60012;color:#fff}
+.modal-inner{display:grid;grid-template-columns:280px 1fr;gap:24px;padding:22px}
+@media(max-width:820px){.modal-inner{grid-template-columns:1fr}}
+.mpreview{position:sticky;top:80px;align-self:start}
+.mpreview .lbl{font-size:10px;letter-spacing:2px;color:#8b8b8b;text-transform:uppercase;margin-bottom:10px;font-weight:700}
+.mfields{min-width:0}
+.mrow2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+@media(max-width:560px){.mrow2{grid-template-columns:1fr}}
+.mgroup{border:1px dashed #333;border-radius:14px;padding:14px;margin-bottom:16px}
+.mgroup h4{font-size:11px;letter-spacing:2px;color:#ff4d55;text-transform:uppercase;margin-bottom:12px}
+.fl{font-size:11px;color:#9ca3af;font-weight:700;margin:4px 0 8px;text-transform:uppercase;letter-spacing:1px}
+.swatches{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.sw{width:86px;height:52px;border-radius:12px;border:2px solid #333;color:#fff;cursor:pointer;
+  font-size:10px;font-weight:800;letter-spacing:1px;transition:.2s;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.sw:hover{transform:translateY(-2px)}
+.sw.on{border-color:#fff;box-shadow:0 0 0 3px rgba(230,0,18,.65)}
+.iconbtn-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.iconbtn{width:52px;height:52px;border-radius:14px;background:#101010;border:1px solid #333;
+  color:#ff8089;font-size:22px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center}
+.iconbtn:hover{border-color:#E60012}
+.iconbtn.sm{width:40px;height:40px;font-size:16px;flex:none}
+.iconname{font-size:11px;color:#8b8b8b;font-family:monospace}
+.pickbtn{background:#1d1d1d;border:1px solid #333;color:#ddd;border-radius:10px;padding:9px 14px;
+  font-size:12px;cursor:pointer}
+.pickbtn:hover{border-color:#E60012;color:#ff8089}
+.specrow{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.specrow input{flex:1;background:#101010;border:1px solid #2e2e2e;border-radius:10px;color:#eee;
+  padding:10px 12px;font-size:13px;outline:none;min-width:0}
+.specrow input:focus{border-color:#E60012}
+.del.sm{background:#242424;border:1px solid #5a2a2a;color:#ff8080;width:34px;height:34px;
+  border-radius:10px;cursor:pointer;flex:none}
+.del.sm:hover{background:#E60012;color:#fff;border-color:#E60012}
+#mPicker{border:1px solid rgba(230,0,18,.5);border-radius:14px;background:#101010;
+  padding:14px;margin-bottom:16px}
+#mPicker[hidden]{display:none}
+.icongrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:8px;max-height:220px;overflow-y:auto}
+.icongrid button{height:46px;border-radius:11px;background:#181818;border:1px solid #2e2e2e;
+  color:#ccc;font-size:18px;cursor:pointer;transition:.15s}
+.icongrid button:hover{border-color:#E60012;color:#ff8089;background:rgba(230,0,18,.1)}
+.icongrid button.on{background:linear-gradient(135deg,#ff4d55,#E60012);color:#fff;border-color:#E60012}
 </style>
 </head>
 <body>
@@ -85,6 +181,29 @@ label.chk input{width:auto;margin:0}
   </div>
 </div>
 
+<!-- MODAL EDIT PRODUK -->
+<div class="modal-bg" id="modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="mTitle">Edit Motor</h2>
+      <button onclick="closeModal()" title="Tutup / Selesai"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="modal-inner">
+      <div class="mpreview">
+        <div class="lbl">Live Preview — tampilan di website</div>
+        <div id="mPreview"></div>
+      </div>
+      <div class="mfields">
+        <div id="mPicker" hidden>
+          <div class="fl">Pilih icon untuk: <b id="pickLbl" style="color:#ff8089"></b> <button class="pickbtn" style="float:right" onclick="hidePicker()">Tutup</button></div>
+          <div class="icongrid" id="iconGrid"></div>
+        </div>
+        <div id="mFields"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 const $=(s,c=document)=>c.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -98,6 +217,10 @@ const GH={repo:'hm_gh_repo',branch:'hm_gh_branch',token:'hm_gh_token',path:'hm_g
 const ghGet=k=>localStorage.getItem(GH[k])||(k==='branch'?'main':k==='path'?'content.json':'');
 
 const DEFAULT_CONTENT={site:{title:'Honda Motor Lombok NTB | Satu Hati, Satu Honda',description:'Dealer resmi sepeda motor Honda Lombok NTB — BeAT, Scoopy, Vario 160, PCX 160, ADV 160, CBR250RR. Promo terbaik, kredit cepat, bengkel AHASS.',ogImage:'OG.png',ogUrl:'',wa:'6281234567890',waDisplay:'0812-3456-7890'},brand:{a:'HONDA',b:'MOTOR',sub:'SATU HATI. SATU HONDA.',preloader:'Honda Motor Lombok NTB'},navCta:'Hubungi Kami',nav:[{label:'Beranda',href:'#hero'},{label:'Model',href:'#produk'},{label:'Layanan',href:'#layanan'},{label:'Sales Kami',href:'#sales'},{label:'Lokasi',href:'#lokasi'}],slides:[{tag:'Skutik #1 Paling Dicintai Indonesia',t1:'Honda',t2:'BeAT',desc:'Lincah menembus padatnya kota, irit untuk jarak jauh. Rajanya skutik entry-level dengan jutaan pengendara setia di seluruh Indonesia.',tint:'red',image:'hero1.png',btn1:{label:'Lihat Promo',icon:'fa-tag',style:'red',href:'#produk'},btn2:{label:'Test Ride',waText:'Halo Pak Apriyana, saya tertarik dengan Honda BeAT'}},{tag:'Premium Big Scooter',t1:'Honda',t2:'PCX 160',desc:'Kenyamanan kelas atas dengan mesin 160cc eSP+ yang halus dan bertenaga. Kemewahan yang kamu rasakan setiap hari.',tint:'carbon',image:'hero2.png',btn1:{label:'Lihat Promo',icon:'fa-tag',style:'carbon',href:'#produk'},btn2:{label:'Konsultasi Gratis',waText:'Halo Pak Apriyana, saya tertarik dengan Honda PCX 160'}},{tag:'Flagship Sport — Total Control',t1:'Honda',t2:'CBR250RR',desc:'DNA sirkuit di jalanan. Mesin 2-silinder, throttle by wire, dan 3 riding mode untuk kamu yang menolak biasa saja.',tint:'blue',image:'hero3.png',btn1:{label:'Lihat Promo',icon:'fa-flag-checkered',style:'red',href:'#produk'},btn2:{label:'Pemesanan',waText:'Halo Pak Apriyana, saya tertarik dengan Honda CBR250RR'}}],stats:[{v:12000,label:'Unit Terjual'},{v:15,label:'Tahun Pengalaman'},{v:98,label:'% Kepuasan Customer'},{v:24,label:'Jam Layanan Konsultasi'}],productsHead:{sub:'Pilihan Line-Up Unggulan',t1:'Temukan Honda ',t2:'Impianmu',desc:'Enam line-up terbaik dari skutik terlaris hingga flagship sport — semua siap inden maupun ready stock di dealer kami.'},products:[{ribbon:'Skutik Terlaris #1',img:'',ph:{cls:'ph-red',icon:'fa-motorcycle',label:'BEAT · MERAH'},cat:'110cc Commuter',name:'Honda BeAT',price:'Mulai Rp 18 jutaan*',note:'/OTR Lombok',specs:[{icon:'fa-gas-pump',label:'110cc eSP'},{icon:'fa-leaf',label:'ISS Hemat BBM'},{icon:'fa-feather',label:'Ringan 89 kg'},{icon:'fa-shield-halved',label:'Combi Brake'}],promo:'Info promo Honda BeAT',order:'Booking Honda BeAT'},{ribbon:'Retro Fashion Icon',img:'',ph:{cls:'ph-silver',icon:'fa-motorcycle',label:'SCOOPY · PUTIH'},cat:'110cc Fashion Retro',name:'Honda Scoopy',price:'Mulai Rp 22 jutaan*',note:'/OTR Lombok',specs:[{icon:'fa-palette',label:'Desain Retro'},{icon:'fa-key',label:'Smart Key'},{icon:'fa-plug',label:'USB Charger'},{icon:'fa-gas-pump',label:'110cc eSP'}],promo:'Info promo Honda Scoopy',order:'Booking Honda Scoopy'},{ribbon:'⚡ High Performance',img:'',ph:{cls:'ph-black',icon:'fa-motorcycle',label:'VARIO 160 · HITAM'},cat:'160cc Sporty Scooter',name:'Honda Vario 160',price:'Mulai Rp 26 jutaan*',note:'/OTR Lombok',specs:[{icon:'fa-gauge-high',label:'160cc eSP+'},{icon:'fa-bolt',label:'4-Valve'},{icon:'fa-lightbulb',label:'Full LED'},{icon:'fa-key',label:'Smart Key'}],promo:'Info promo Honda Vario 160',order:'Booking Honda Vario 160'},{ribbon:'👑 Premium Scooter',img:'',ph:{cls:'ph-black',icon:'fa-motorcycle',label:'PCX 160 · HITAM'},cat:'160cc Big Scooter',name:'Honda PCX 160',price:'Mulai Rp 32 jutaan*',note:'/OTR Lombok',specs:[{icon:'fa-gauge-high',label:'160cc eSP+'},{icon:'fa-shield-halved',label:'HSTC'},{icon:'fa-key',label:'Smart Key'},{icon:'fa-lightbulb',label:'Full LED'}],promo:'Info promo Honda PCX 160',order:'Booking Honda PCX 160'},{ribbon:'🏔️ SUV Scooter',img:'',ph:{cls:'ph-red',icon:'fa-motorcycle',label:'ADV 160 · MERAH'},cat:'160cc Adventure',name:'Honda ADV 160',price:'Mulai Rp 36 jutaan*',note:'/OTR Lombok',specs:[{icon:'fa-mountain',label:'Suspensi Showa'},{icon:'fa-wind',label:'Windscreen Adj.'},{icon:'fa-shield-halved',label:'HSTC'},{icon:'fa-gauge-high',label:'160cc eSP+'}],promo:'Info promo Honda ADV 160',order:'Booking Honda ADV 160'},{ribbon:'🏁 Flagship Sport',img:'',ph:{cls:'ph-blue',icon:'fa-motorcycle',label:'CBR250RR · BIRU'},cat:'250cc Super Sport',name:'Honda CBR250RR',price:'Mulai Rp 72 jutaan*',note:'/OTR Lombok',specs:[{icon:'fa-gears',label:'2-Silinder'},{icon:'fa-sliders',label:'3 Riding Mode'},{icon:'fa-gauge-high',label:'Throttle by Wire'},{icon:'fa-arrow-down',label:'Upside-Down'}],promo:'Info promo Honda CBR250RR',order:'Booking Honda CBR250RR'}],notePrice:'*Harga dapat berubah sewaktu-waktu. Hubungi sales consultant kami untuk penawaran & simulasi kredit eksklusif bulan ini.',marquee:[{text:'BeAT'},{text:'Scoopy'},{text:'Vario 160'},{text:'PCX 160'},{text:'ADV 160'},{text:'CBR250RR'},{text:'Satu Hati. Satu Honda.'}],servicesHead:{sub:'Layanan Purna Jual',t1:'Bukan Sekedar Jual, ',t2:'Kami Rawat',desc:'Kepuasanmu tidak berhenti di kunci kontak. Dealer kami didukung bengkel AHASS resmi dan sparepart asli Honda.'},services:[{icon:'fa-screwdriver-wrench',title:'Bengkel AHASS Resmi',desc:'Servis oleh teknisi bersertifikat Honda dengan peralatan standar pabrik dan booking online.'},{icon:'fa-gears',title:'Sparepart Asli HGP',desc:'Jaminan 100% Honda Genuine Parts bergaransi resmi — mesin awet, nilai jual tetap tinggi.'},{icon:'fa-hand-holding-dollar',title:'Kredit Super Cepat',desc:'DP ringan mulai ratusan ribu, tenor fleksibel hingga 3 tahun, approval hitungan jam.'},{icon:'fa-rotate',title:'Trade-In Motor Lama',desc:'Tukar tambah motor lama merek apa pun dengan penilaian harga terbaik hari itu juga.'}],sales:{sub:'Kenali Sales Consultant Kami',t1:'Melayani Anda ',t2:'Sepenuh Hati',prefix:'Bapak',name:'Apriyana',role:'Sales Consultant Resmi',company:'Dealer Honda Motor Lombok NTB',badge:'SALES CONSULTANT TERPERCAYA',photo:'',phIcon:'fa-user-tie',phLabel:'FOTO BAPAK APRIYANA',features:[{text:'Konsultasi gratis pemilihan model sesuai kebutuhan & budget Anda'},{text:'Bantuan proses kredit — DP ringan, bunga kompetitif, approval cepat'},{text:'Test ride diantar langsung ke rumah/kantor di seluruh Pulau Lombok'},{text:'Pendampingan penuh dari pemesanan hingga motor tiba di tangan Anda'}],phoneLabel:'Hubungi Langsung',waText:'Halo Pak Apriyana, saya ingin konsultasi motor Honda',btnWa:'Chat WhatsApp',btnCall:'Telepon Sekarang'},map:{sub:'Kunjungi Showroom Kami',t1:'Dealer ',t2:'Honda Motor Lombok NTB',desc:'Nikmati pengalaman langsung melihat dan mencoba unit display kami di showroom resmi.',src:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63282.92432!2d116.05!3d-8.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc3f6f6b1c5d1%3A0x3019531001b2f00!2sMataram%2C%20Nusa%20Tenggara%20Bar.!5e0!3m2!1sid!2sid!4v1700000000000',chips:[{icon:'fa-location-dot',label:'Jl. Selaparang, Mataram, Lombok - NTB'},{icon:'fa-clock',label:'Buka Setiap Hari · 08.00 - 17.00 WITA'},{icon:'fa-motorcycle',label:'Unit Test Ride Tersedia'},{icon:'fa-mug-hot',label:'Free Coffee & Snack'}]},footer:{logoA:'HONDA',logoB:'MOTOR',slogan1:'Satu ',slogan2:'HATI.',loc:'Lombok — NTB',desc:'Dealer resmi sepeda motor Honda untuk wilayah Lombok dan Nusa Tenggara Barat. Melayani penjualan, kredit, servis AHASS, dan sparepart asli Honda.',socials:[{icon:'fa-instagram',label:'Instagram',href:'#',wa:false},{icon:'fa-facebook-f',label:'Facebook',href:'#',wa:false},{icon:'fa-tiktok',label:'TikTok',href:'#',wa:false},{icon:'fa-whatsapp',label:'WhatsApp',href:'',wa:true}],cols:[{title:'Model Kami',links:[{icon:'fa-angle-right',label:'BeAT',href:'#produk',wa:false},{icon:'fa-angle-right',label:'Vario 160',href:'#produk',wa:false},{icon:'fa-angle-right',label:'PCX 160',href:'#produk',wa:false},{icon:'fa-angle-right',label:'Promo Bulan Ini',href:'#produk',wa:false}]},{title:'Navigasi',links:[{icon:'fa-angle-right',label:'Beranda',href:'#hero',wa:false},{icon:'fa-angle-right',label:'Layanan AHASS',href:'#layanan',wa:false},{icon:'fa-angle-right',label:'Sales Consultant',href:'#sales',wa:false},{icon:'fa-angle-right',label:'Test Ride',href:'',wa:true}]},{title:'Kontak',links:[{icon:'fa-phone',label:'0812-3456-7890 (Pak Apriyana)',href:'tel:+6281234567890',wa:false},{icon:'fa-whatsapp',label:'WhatsApp 24 Jam',href:'',wa:true},{icon:'fa-location-dot',label:'Mataram, Lombok - NTB',href:'#lokasi',wa:false},{icon:'fa-envelope',label:'sales@hondamotorlombok.id',href:'mailto:sales@hondamotorlombok.id',wa:false}]}],bottom:'© 2026 <b>HONDA MOTOR LOMBOK NTB</b><br>SATU HATI. SATU HONDA. · ALL RIGHTS RESERVED'}};
+
+/* ===== PUSTAKA ICON & WARNA (VISUAL) ===== */
+const ICONS=['fa-motorcycle','fa-car-side','fa-gas-pump','fa-leaf','fa-feather','fa-shield-halved','fa-palette','fa-key','fa-plug','fa-gauge-high','fa-bolt','fa-lightbulb','fa-mountain','fa-wind','fa-gears','fa-sliders','fa-arrow-down','fa-tag','fa-flag-checkered','fa-users','fa-suitcase','fa-camera','fa-sun','fa-microchip','fa-battery-full','fa-fire','fa-truck-fast','fa-crown','fa-star','fa-diamond','fa-check','fa-angle-right','fa-phone','fa-location-dot','fa-envelope','fa-clock','fa-mug-hot','fa-screwdriver-wrench','fa-hand-holding-dollar','fa-rotate','fa-user-tie'];
+const PHCLS=[['ph-red','Merah'],['ph-black','Hitam'],['ph-silver','Silver'],['ph-blue','Biru']];
 
 const SCHEMA=[
 {t:'🌐 Situs',f:[
@@ -121,18 +244,10 @@ const SCHEMA=[
   {p:'btn1.style',l:'Tombol 1 — warna',t:'sel',o:['red','carbon']},{p:'btn1.href',l:'Tombol 1 — link'},
   {p:'btn2.label',l:'Tombol 2 — label (WA)'},{p:'btn2.waText',l:'Tombol 2 — pesan WA'}]}]},
 {t:'📊 Statistik',lists:[{p:'stats',l:'Angka Statistik',sub:[{p:'v',l:'Nilai angka',t:'num'},{p:'label',l:'Label'}]}]},
-{t:'🏍️ Produk',f:[
+{t:'🏍️ Produk',custom:'products',f:[
   {p:'productsHead.sub',l:'Sub judul section'},{p:'productsHead.t1',l:'Judul bagian 1'},
   {p:'productsHead.t2',l:'Judul bagian 2 (serif)'},{p:'productsHead.desc',l:'Deskripsi section',t:'ta'},
-  {p:'notePrice',l:'Catatan harga bawah',t:'ta'}],
- lists:[{p:'products',l:'Daftar Motor',sub:[
-  {p:'ribbon',l:'Ribbon pojok'},{p:'cat',l:'Kategori'},{p:'name',l:'Nama motor'},
-  {p:'price',l:'Harga'},{p:'note',l:'Catatan harga kecil'},
-  {p:'img',l:'Gambar produk (kosong = placeholder)'},
-  {p:'ph.cls',l:'Warna placeholder',t:'sel',o:['ph-red','ph-black','ph-silver','ph-blue']},
-  {p:'ph.icon',l:'Icon placeholder (fa-…)'},{p:'ph.label',l:'Teks placeholder'},
-  {p:'promo',l:'Pesan WA tombol "Lihat Promo"'},{p:'order',l:'Pesan WA tombol "Pemesanan"'},
-  {p:'specs',l:'Chips spesifikasi',t:'list',sub:[{p:'icon',l:'Icon (fa-…)'},{p:'label',l:'Label'}]}]}]},
+  {p:'notePrice',l:'Catatan harga bawah',t:'ta'}]},
 {t:'📢 Marquee',lists:[{p:'marquee',l:'Teks Berjalan',sub:[{p:'text',l:'Teks'}]}]},
 {t:'🛠️ Layanan',f:[
   {p:'servicesHead.sub',l:'Sub judul'},{p:'servicesHead.t1',l:'Judul bagian 1'},
@@ -172,6 +287,7 @@ function saveDraft(){localStorage.setItem(DRAFT,JSON.stringify(S));status('Draft
 function newItem(sub){const o={};sub.forEach(f=>{o[f.p]=f.t==='num'?0:f.t==='chk'?false:f.t==='list'?[]:'';});return o;}
 function itemLabel(o){for(const k of ['label','text','name','title','tag','t2'])if(o&&o[k])return o[k];return 'Item';}
 
+/* ===== FIELD GENERIK ===== */
 function fieldHTML(f,path){
   const v=get(S,path);
   if(f.t==='ta')return `<label>${f.l}<textarea data-p="${path}">${esc(v)}</textarea></label>`;
@@ -187,10 +303,115 @@ function itemHTML(sub,path){
     <div class="ib"><button data-mv="${path}" data-dir="-1" title="Naik">↑</button><button data-mv="${path}" data-dir="1" title="Turun">↓</button><button class="del" data-del="${path}" title="Hapus">✕</button></div></div>
     <div class="item-body">${sub.map(f=>fieldHTML(f,path+'.'+f.p)).join('')}</div></div>`;
 }
+
+/* ===== CARD PREVIEW PRODUK (mirror index.html) ===== */
+function pvCard(p,tools){
+  const hasImg=!!p.img;
+  const media=hasImg
+    ? `<img src="${esc(p.img)}" alt="" onerror="this.remove()">`
+    : `<i class="fas ${esc(p.ph.icon)}"></i><span>${esc(p.ph.label)}</span>`;
+  return `<div class="pv-card">
+    <div class="pv-img ${esc(p.ph.cls)}">${media}<span class="pv-ribbon">${esc(p.ribbon)}</span></div>
+    <div class="pv-body">
+      <div class="pv-cat">${esc(p.cat)}</div>
+      <div class="pv-name">${esc(p.name)}</div>
+      <div class="pv-price">${esc(p.price)} <small>${esc(p.note)}</small></div>
+      <div class="pv-specs">${(p.specs||[]).map(s=>`<span><i class="fas ${esc(s.icon)}"></i> ${esc(s.label)}</span>`).join('')}</div>
+      <div class="pv-btns"><b class="r">Lihat Promo</b><b class="c">Pemesanan</b></div>
+    </div>
+    ${tools!==false?`<div class="pv-tools">
+      <button data-pmv="${tools}" data-dir="-1" title="Naikkan urutan">↑</button>
+      <button data-pmv="${tools}" data-dir="1" title="Turunkan urutan">↓</button>
+      <button class="del" data-pdel="${tools}" title="Hapus motor">✕</button>
+      <button class="ed" data-pedit="${tools}" title="Edit motor"><i class="fas fa-pen"></i></button>
+    </div>`:''}
+  </div>`;
+}
+
+/* ===== TAB PRODUK VISUAL ===== */
+function renderProductsTab(){
+  const t=SCHEMA[activeTab];
+  let h=`<div class="group"><h3>Pengaturan Section MODEL</h3>${t.f.map(f=>fieldHTML(f,f.p)).join('')}</div>`;
+  h+=`<div class="group"><h3>Daftar Motor (${S.products.length}) — tampil persis seperti di website</h3>
+    <div class="pv-grid">
+      ${S.products.map((p,i)=>pvCard(p,i)).join('')}
+      <div class="pv-add" data-padd><span class="big">+</span><span>Tambah Motor</span></div>
+    </div></div>`;
+  $('#panel').innerHTML=h;
+}
+
+/* ===== MODAL EDIT ===== */
+let editIdx=-1,pickTarget=null;
+function openModal(i){editIdx=i;$('#modal').hidden=false;renderModal();document.body.style.overflow='hidden';}
+function closeModal(){
+  $('#modal').hidden=true;editIdx=-1;pickTarget=null;document.body.style.overflow='';
+  if(SCHEMA[activeTab]&&SCHEMA[activeTab].custom==='products')renderProductsTab();
+}
+function renderModal(){
+  const p=S.products[editIdx],base=`products.${editIdx}`;
+  $('#mTitle').textContent='Edit: '+(p.name||'Motor Baru');
+  $('#mPreview').innerHTML=pvCard(p,false);
+  $('#mFields').innerHTML=`
+    <div class="mrow2">
+      <label>Nama Motor<input data-p="${base}.name" value="${esc(p.name)}"></label>
+      <label>Kategori<input data-p="${base}.cat" value="${esc(p.cat)}"></label>
+    </div>
+    <div class="mrow2">
+      <label>Harga<input data-p="${base}.price" value="${esc(p.price)}"></label>
+      <label>Catatan Harga Kecil<input data-p="${base}.note" value="${esc(p.note)}"></label>
+    </div>
+    <label>Ribbon Pojok (cth: ⚡ Best Seller)<input data-p="${base}.ribbon" value="${esc(p.ribbon)}"></label>
+    <div class="mrow2">
+      <label>Pesan WA tombol "Lihat Promo"<input data-p="${base}.promo" value="${esc(p.promo)}"></label>
+      <label>Pesan WA tombol "Pemesanan"<input data-p="${base}.order" value="${esc(p.order)}"></label>
+    </div>
+    <label>Gambar Produk — nama file / URL (kosong = pakai placeholder di bawah)<input data-p="${base}.img" value="${esc(p.img)}"></label>
+    <div class="mgroup">
+      <h4>Placeholder Card (tampil jika gambar kosong)</h4>
+      <div class="fl">Warna Background</div>
+      <div class="swatches">${PHCLS.map(c=>`<button class="sw ${c[0]} ${p.ph.cls===c[0]?'on':''}" data-setcls="${base}.ph.cls" data-val="${c[0]}">${c[1]}</button>`).join('')}</div>
+      <div class="fl">Icon Besar</div>
+      <div class="iconbtn-row">
+        <button class="iconbtn" data-pick="${base}.ph.icon" data-lbl="Icon besar placeholder"><i class="fas ${esc(p.ph.icon)}"></i></button>
+        <span class="iconname">${esc(p.ph.icon)}</span>
+        <button class="pickbtn" data-pick="${base}.ph.icon" data-lbl="Icon besar placeholder"><i class="fas fa-grid-2"></i> Pilih Icon…</button>
+      </div>
+      <label style="margin-top:10px">Teks Placeholder<input data-p="${base}.ph.label" value="${esc(p.ph.label)}"></label>
+    </div>
+    <div class="mgroup">
+      <h4>Chips Spesifikasi</h4>
+      ${(p.specs||[]).map((s,k)=>`<div class="specrow">
+        <button class="iconbtn sm" data-pick="${base}.specs.${k}.icon" data-lbl="Icon spec '${esc(s.label)||k+1}'"><i class="fas ${esc(s.icon)}"></i></button>
+        <input data-p="${base}.specs.${k}.label" value="${esc(s.label)}" placeholder="Label spec">
+        <button class="del sm" data-spdel="${base}.specs.${k}" title="Hapus spec">✕</button>
+      </div>`).join('')}
+      <button class="add" data-spadd="${base}.specs">+ Tambah Spec</button>
+    </div>`;
+  hidePicker();
+}
+function updateModalPreview(){
+  if(editIdx<0)return;
+  const p=S.products[editIdx];
+  $('#mPreview').innerHTML=pvCard(p,false);
+  $('#mTitle').textContent='Edit: '+(p.name||'Motor Baru');
+}
+function showPicker(path,lbl){
+  pickTarget=path;
+  $('#pickLbl').textContent=lbl||path.split('.').pop();
+  const cur=get(S,path);
+  $('#iconGrid').innerHTML=ICONS.map(ic=>`<button data-ic="${ic}" class="${ic===cur?'on':''}" title="${ic}"><i class="fas ${ic}"></i></button>`).join('');
+  $('#mPicker').hidden=false;
+  $('#mPicker').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function hidePicker(){$('#mPicker').hidden=true;pickTarget=null;}
+
+/* ===== RENDER TAB GENERIK ===== */
 function renderTabs(){$('#tabs').innerHTML=SCHEMA.map((t,i)=>`<button class="${i===activeTab?'on':''}" data-tab="${i}">${t.t}</button>`).join('')+`<button class="${activeTab===GHTAB?'on':''}" data-tab="${GHTAB}">🐙 GitHub</button>`;}
 function renderTab(){
   if(activeTab===GHTAB){renderGH();return;}
-  const t=SCHEMA[activeTab];let h='';
+  const t=SCHEMA[activeTab];
+  if(t.custom==='products'){renderProductsTab();return;}
+  let h='';
   if(t.f&&t.f.length)h+=`<div class="group"><h3>Pengaturan</h3>${t.f.map(f=>fieldHTML(f,f.p)).join('')}</div>`;
   (t.lists||[]).forEach(L=>{SUBS[L.p]=L.sub;const arr=get(S,L.p)||[];
     h+=`<div class="group"><h3>${L.l}<button class="add" data-add="${L.p}">+ Tambah Item</button></h3>${arr.map((it,i)=>itemHTML(L.sub,L.p+'.'+i)).join('')||'<p class="empty">Belum ada item.</p>'}</div>`;});
@@ -207,17 +428,60 @@ function renderGH(){
   </div>`;
 }
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(!b)return;activeTab=+b.dataset.tab;renderTabs();renderTab();});
-$('#panel').addEventListener('input',e=>{
+
+/* ===== INPUT GLOBAL (panel + modal) ===== */
+document.addEventListener('input',e=>{
   if(e.target.dataset.gh){localStorage.setItem(GH[e.target.dataset.gh],e.target.value);status('Setting GitHub tersimpan ✓');return;}
   const p=e.target.dataset.p;if(!p)return;
   let v=e.target.value;
   if(e.target.type==='checkbox')v=e.target.checked;
   if(e.target.type==='number')v=+v;
   set(S,p,v);saveDraft();
+  /* update judul item generik */
   const cand=['label','text','name','title','tag','t2'],last=p.split('.').pop();
   const item=e.target.closest('.item');
   if(item&&cand.includes(last)){const h=item.querySelector('.item-head span');if(h)h.textContent=v;}
+  /* update live preview modal */
+  if(editIdx>=0&&p.startsWith(`products.${editIdx}`))updateModalPreview();
 });
+
+/* ===== CLICK GLOBAL ===== */
+document.addEventListener('click',e=>{
+  const T=e.target;
+  /* tools kartu produk */
+  const pe=T.closest('[data-pedit]');
+  if(pe){openModal(+pe.dataset.pedit);return;}
+  const pd=T.closest('[data-pdel]');
+  if(pd){const i=+pd.dataset.pdel;
+    if(S.products.length<=1){alert('Minimal sisakan 1 motor.');return;}
+    if(!confirm(`Hapus "${S.products[i].name}" dari daftar?`))return;
+    S.products.splice(i,1);saveDraft();renderProductsTab();return;}
+  const pm=T.closest('[data-pmv]');
+  if(pm){const i=+pm.dataset.pmv,j=i+ +pm.dataset.dir;
+    if(j<0||j>=S.products.length)return;
+    [S.products[i],S.products[j]]=[S.products[j],S.products[i]];saveDraft();renderProductsTab();return;}
+  const pa=T.closest('[data-padd]');
+  if(pa){S.products.push({ribbon:'New Model',img:'',ph:{cls:'ph-red',icon:'fa-motorcycle',label:'NAMA · WARNA'},cat:'Kategori',name:'Motor Baru',price:'Mulai Rp … jutaan*',note:'/OTR Lombok',specs:[{icon:'fa-star',label:'Spec 1'}],promo:'Info promo Motor Baru',order:'Booking Motor Baru'});
+    saveDraft();renderProductsTab();openModal(S.products.length-1);return;}
+  /* modal: swatch warna */
+  const sw=T.closest('[data-setcls]');
+  if(sw){set(S,sw.dataset.setcls,sw.dataset.val);saveDraft();renderModal();return;}
+  /* modal: buka icon picker */
+  const pk=T.closest('[data-pick]');
+  if(pk){showPicker(pk.dataset.pick,pk.dataset.lbl);return;}
+  /* modal: pilih icon dari grid */
+  const ic=T.closest('[data-ic]');
+  if(ic&&pickTarget){set(S,pickTarget,ic.dataset.ic);saveDraft();renderModal();return;}
+  /* modal: tambah/hapus spec */
+  const sa=T.closest('[data-spadd]');
+  if(sa){const arr=get(S,sa.dataset.spadd)||[];arr.push({icon:'fa-star',label:'Spec Baru'});saveDraft();renderModal();return;}
+  const sd=T.closest('[data-spdel]');
+  if(sd){const ks=sd.dataset.spdel.split('.');const i=+ks.pop();get(S,ks.join('.')).splice(i,1);saveDraft();renderModal();return;}
+});
+/* klik latar modal = tutup */
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+
+/* ===== LIST GENERIK (tab non-produk) ===== */
 $('#panel').addEventListener('click',e=>{
   const add=e.target.closest('[data-add]');
   if(add){const p=add.dataset.add;const arr=get(S,p)||[];arr.push(newItem(SUBS[p]));set(S,p,arr);saveDraft();renderTab();return;}
